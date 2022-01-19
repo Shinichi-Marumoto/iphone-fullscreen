@@ -74,15 +74,14 @@ if ( (/iphone/.test(_ua)) && !(/crios|edgios/.test(_ua)) ){
     fs_display();
   }
   function fs_display() {
+    _fs.style.display = 'none';
+    _fsd.style.zIndex = '-2';
     if ( window.orientation == 0 ) {
       _fs_container.style.height = '100%';
-      _fs.style.display = 'none';
     } else {
       _fs_container.style.height = '100vh';
       if ( screen.width - window.innerHeight <= 20 ) {
         document.addEventListener('touchmove', _preventDefault, false);
-        _fs.style.display = 'none';
-        _fsd.style.zIndex = '-2';
       } else if ( screen.width - window.innerHeight > 20 ) {
         document.removeEventListener('touchmove', _preventDefault, false);
         _fs.style.display = 'flex';
